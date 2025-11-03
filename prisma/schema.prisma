@@ -1,0 +1,16 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model CallLog {
+  id        Int      @id @default(autoincrement())
+  phone     String
+  strategy  String
+  result    String
+  timestamp DateTime @default(now())
+}
